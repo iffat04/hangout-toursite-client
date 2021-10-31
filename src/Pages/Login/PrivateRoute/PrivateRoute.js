@@ -3,8 +3,8 @@ import { Redirect, Route } from "react-router";
 import UseAuth from "../../../hooks/useAuth";
 
 const PrivateRoute = ({children,...rest}) => {
-    console.log(children);
-    console.log(rest);
+    //console.log(children);
+    //console.log(rest);
     const {user,isloading} = UseAuth();
     if(isloading){
         return  <Spinner animation="border" className="text-center" size="lg" variant="danger" />

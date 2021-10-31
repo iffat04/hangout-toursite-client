@@ -7,7 +7,7 @@ import MyPackages from '../MyPackages/MyPackages';
 
 const DashBoard= () => {
     let { path, url } = useRouteMatch();
-    console.log(path,url);
+    //console.log(path,url);
     return (
         <div>
             <h1>DashBoard</h1>

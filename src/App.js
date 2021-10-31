@@ -29,9 +29,9 @@ function App() {
      <Login></Login>
      </Route>
 
-     <Route path="/booking/:PackId">
+     <PrivateRoute path="/booking/:packId">
        <Booking></Booking>
-     </Route>
+     </PrivateRoute>
 
      <PrivateRoute path="/dashBoard">
        <DashBoard></DashBoard>

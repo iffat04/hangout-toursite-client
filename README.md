@@ -2,7 +2,7 @@
 
 ## live link:  [HangOut](https://hangout-tour-site.web.app/).
 
-## Available Scripts
+## Available Features
 This project has:
 * management team can upload or update tour package and can approve request of purchasing tour packages
 * People can make account who purchase a package and can get several advantages of memberships
