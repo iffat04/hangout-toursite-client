@@ -6,7 +6,7 @@ const AddPackages = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data =>{
      console.log(data);
-     axios.post('http://localhost:5000/packages',data)
+     axios.post('https://bloodcurdling-pirate-24030.herokuapp.com/packages',data)
      .then(res=>{
         console.log(res);
         console.log('abc')

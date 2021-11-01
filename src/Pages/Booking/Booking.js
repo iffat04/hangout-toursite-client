@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import UseAuth from '../../hooks/useAuth';
 import axios from 'axios';
 const Booking = () => { 
     const { packId } = useParams();
 
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, control } = useForm();
     const onSubmit = data =>{
-     console.log(data);
-     
-     axios.post('http://localhost:5000/booking',data)
-    .then(res=>{
-        console.log(res);
+        console.log(data);
+        
+        axios.post('https://bloodcurdling-pirate-24030.herokuapp.com/booking',data)
+        .then(res=>{
+            console.log(res);
 
-        const id= res.data.insertedId;
-        if(id){
-            alert('order placed successfully');
-            //reset()
-        }
-   })
-}
+            const id= res.data.insertedId;
+            if(id){
+                alert('order placed successfully');
+                reset()
+            }
+        })
+   }
 
    const {user} = UseAuth();
 
     const [service,setService]= useState({});
     useEffect(()=>{
-        fetch(`http://localhost:5000/packages/${packId}`)
+        fetch(`https://bloodcurdling-pirate-24030.herokuapp.com/packages/${packId}`)
         .then(res=>res.json())
         .then(data=>setService(data));
     },[])
@@ -57,7 +57,12 @@ const Booking = () => {
             <input className="rounded p-2"  defaultValue={name} required  {...register("packageName")}  />
             <input className="rounded p-2"  {...register("phone")} placeholder="Phone Number"  />
             <input className="rounded p-2" {...register("address")} placeholder="Address" />
-
+            <div>
+            <input type="radio"  className="btn-lg" required value={true} {...register("status")}  />
+            <label class="form-check-label" for="flexCheckChecked">
+                click Checked 
+            </label>
+            </div>
             <input className="rounded bg-primary p-2 text-white fs-5 w-25 mx-auto" type="submit" />
         </form>
 

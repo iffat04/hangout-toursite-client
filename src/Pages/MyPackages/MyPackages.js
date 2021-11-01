@@ -6,7 +6,7 @@ const MyPackages = () => {
     const email = user.email;
     const [myOrder, setMyorder]= useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/booking/${email}`)
+        fetch(`https://bloodcurdling-pirate-24030.herokuapp.com/booking/${email}`)
         .then(res=>res.json())
         .then(data=>setMyorder(data))
     },[])
@@ -16,9 +16,9 @@ const MyPackages = () => {
         const proceed = window.confirm('are you sure to Delete?')
         if(proceed){
         console.log('clicked')
-        const url = `http://localhost:5000/packages/${id}`;
+        const url = `https://bloodcurdling-pirate-24030.herokuapp.com/packages/${id}`;
         console.log(url);
-        fetch(`http://localhost:5000/packages/${id}`,{
+        fetch(`https://bloodcurdling-pirate-24030.herokuapp.com/packages/${id}`,{
             method : 'DELETE'
         })
         .then(res=>res.json())
@@ -40,8 +40,9 @@ const MyPackages = () => {
         
         <div className="d-flex flex-column justify-content-center w-50 mx-auto gap-4 bg-secondary p-5 rounded">
            {
-               myOrder.map(order=><div key={order._id}>
-                   <h3 className="bg-light my-2 w-50 mx-auto p-1 d-flex justify-content-between ">{order?.packageName}  <button onClick={()=>handledelete(order._id)} className="text-danger bg-dark p-2">X</button></h3>
+               myOrder.map(order=><div className="d-flex align-items-center flex-column flex-md-row " key={order._id}>
+                   <h4 className="bg-md-light my-2 w-50 mx-auto p-1 d-flex justify-content-center">{order?.packageName}</h4>
+                   <button onClick={()=>handledelete(order._id)} className="text-danger bg-dark p-md-2">X</button>
                </div>)
            }
         </div>

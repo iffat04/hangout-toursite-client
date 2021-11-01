@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-
+import { HashLink } from 'react-router-hash-link';
 
 const Footer = () => {
     return (
@@ -14,7 +14,7 @@ const Footer = () => {
             <br/>
             Phone: +014 32311
             <br/>
-            Email: <Link className="footer">hangout_@gmail.com</Link>
+            Email: <Link as={HashLink} to="/home#review" className="footer" >hangout_@gmail.com</Link>
             </p>
             </div>
 

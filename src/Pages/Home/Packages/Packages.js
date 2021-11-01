@@ -4,7 +4,7 @@ import Package from '../Package/Package';
 const Packages = () => {
     const [packages,setPackages] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/packages')
+        fetch('https://bloodcurdling-pirate-24030.herokuapp.com/packages')
         .then(res=>res.json())
         .then(data=>setPackages(data))
     },[]);
@@ -16,7 +16,7 @@ const Packages = () => {
             <div className="row row-cols-1 row-cols-md-3 g-4">
             {
                 packages.map(pack=>
-                <Package key={pack.id} package={pack}/>
+                <Package key={pack._id} package={pack}/>
                 )
             }
                 

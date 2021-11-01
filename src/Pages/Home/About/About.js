@@ -2,11 +2,11 @@ import React from 'react';
 import img from '../../../images/a19.jpeg'
 const About = () => {
     return (
-        <div id="about" className=" d-flex justify-content-center container mx-auto gap-5 my-5 rounded" > 
+        <div id="about" className=" d-flex justify-content-center flex-wrap mx-auto gap-5 my-5 rounded container" > 
             
-            <div className="d-flex flex-column justify-content-center  container">
+            <div className="d-flex flex-column justify-content-center container">
                 <h1>About Us</h1>
-                <p>
+                <p className="text-wrap">
                 HangOut Bangladesh is the most experienced and well equipped 
                 tour operator in Bangladesh. Our vision is to be recognized as 
                 a leading provider of quality travel and tourism services worldwide. 
@@ -16,7 +16,7 @@ const About = () => {
                 </p>
             </div>
             <div className="w-50 mb-5">
-                <img src={img} height="400px"  alt="" />
+                <img src={img} className="img-fluid"   alt="" />
             </div>
         </div>
     );
